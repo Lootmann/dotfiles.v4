@@ -1,0 +1,91 @@
+shell:
+  program: /usr/bin/zsh
+
+env:
+  # TERM: xterm-256color
+  TERM: alacritty
+
+font:
+  normal:
+    family: CaskaydiaCove  Nerd Font Mono # 13.5
+    # family: FiraCode       Nerd Font Mono
+    # family: Hack           Nerd Font Mono # 15.0
+    # family: Inconsolata    Nerd Font Mono # 16.0
+    # family: JetBrainsMono  Nerd Font Mono # 13.5
+    # family: UbuntuMono     Nerd Font Mono # 16.0
+  bold:
+    family: CaskaydiaCove Nerd Font Mono # 13.5
+    # family: JetBrainsMono Nerd Font Mono # 13.5
+    # family: UbuntuMono    Nerd Font Mono # 16.0
+  size: 15.0
+
+########################
+# window
+########################
+
+window:
+  dimensions:
+    columns: 115
+    lines: 43
+  position:
+    x: 540
+    y: 0
+  padding:
+    x: 0
+    y: 0
+  decorations: none
+  startup_mode: Windowed
+  opacity: 0.85
+
+  cursor:
+    style:
+      shape: Beam # Block, Beam, UnderLine
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+########################
+# mouse
+########################
+
+mouse:
+  double_click: { threshold: 300 }
+  hide_when_typing: true
+
+mouse_bindings:
+  - { mouse: Left, mods: Shift, action: Copy }
+  - { mouse: Right, mods: Shift, action: Paste }
+
+########################
+# editor
+########################
+tabspaces: 2
+
+########################
+# colors
+########################
+import:
+  # dark
+  # - "~/.config/alacritty/colors/ayu.yaml"
+  # - "~/.config/alacritty/colors/ayu_dark.yaml"
+  # - "~/.config/alacritty/colors/base16_default_dark.yaml"
+  - "~/.config/alacritty/colors/blood_moon.yaml"
+  # - "~/.config/alacritty/colors/campbell.yaml"
+  # - "~/.config/alacritty/colors/cyber_punk_neon.yaml"
+  # - "~/.config/alacritty/colors/falcon.yaml"
+  # - "~/.config/alacritty/colors/gotham.yaml"
+  # - "~/.config/alacritty/colors/hyper.yaml"
+  # - "~/.config/alacritty/colors/iterm.yaml"
+  # - "~/.config/alacritty/colors/papercolor_dark.yaml"
+  # - "~/.config/alacritty/colors/seashells.yaml"
+  # - "~/.config/alacritty/colors/smoooooth.yml"
+
+########################
+# util
+########################
+live_config_reload: true
+
+class:
+  instance: Alacritty
+  general: Alacritty
