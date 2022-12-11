@@ -79,6 +79,8 @@ require("packer").startup(function(use)
 	use({ "pineapplegiant/spaceduck" })
 	use({ "lifepillar/vim-gruvbox8" })
 	use({ "danilo-augusto/vim-afterglow" })
+	use({ "aonemd/kuroi.vim" })
+	use({ "cocopon/iceberg.vim" })
 
 	-- commentout
 	use("terrortylor/nvim-comment")

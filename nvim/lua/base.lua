@@ -64,3 +64,14 @@ glo.verbosefile = "/tmp/vim.log"
 
 -- checkhealth
 vim.g.python3_host_prog = "/usr/bin/python3"
+
+--[[
+cursor
+  normal: block
+  insert: Beam
+  when exit: underline
+--]]
+vim.cmd([[
+  set guicursor=n:block,i:ver25
+  au VimLeave * set guicursor=a:hor20
+]])
