@@ -67,8 +67,10 @@ set whichwrap=b,s,h,l,<,>,[,],~
 
 
 " cursor
-let &t_SI .= "\e[5 q" " normal mode
-let &t_EI .= "\e[2 q" " insert mode
+let &t_TI .= "\e[2 q" " when enter into vim
+let &t_EI .= "\e[2 q" " normal mode
+let &t_SI .= "\e[5 q" " insert mode
+let &t_TE .= "\e[4 q" " when exit from vim
 
 
 " editor
