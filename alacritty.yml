@@ -37,9 +37,9 @@ window:
   startup_mode: Windowed
   opacity: 0.85
 
-  cursor:
-    style:
-      shape: Beam # Block, Beam, UnderLine
+cursor:
+  style:
+    shape: Underline # availables: Block, Beam, UnderLine
 
 scrolling:
   history: 10000
@@ -76,6 +76,7 @@ import:
   # - "~/.config/alacritty/colors/falcon.yaml"
   # - "~/.config/alacritty/colors/gotham.yaml"
   # - "~/.config/alacritty/colors/hyper.yaml"
+  # - "~/.config/alacritty/colors/iceberg.yml"
   # - "~/.config/alacritty/colors/iterm.yaml"
   # - "~/.config/alacritty/colors/papercolor_dark.yaml"
   # - "~/.config/alacritty/colors/seashells.yaml"
