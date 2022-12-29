@@ -72,6 +72,6 @@ cursor
   when exit: underline
 --]]
 vim.cmd([[
-  set guicursor=n:block,i:ver25
-  au VimLeave * set guicursor=a:hor20
+  set guicursor=n:block,i:ver20
+  au VimLeave * set guicursor=a:ver20
 ]])

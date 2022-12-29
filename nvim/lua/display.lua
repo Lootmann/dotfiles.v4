@@ -23,23 +23,22 @@ opt.termguicolors = true
 
 -- color scheme
 vim.o.background = "dark"
-cmd("colorscheme iceberg")
+cmd("colorscheme juliana")
 
 --[[
 -- cool
-afterglow apprentice ayu ayu-dark
-dawn iceberg jellybeans moonfly
-nightfly onedarkpro onenord
-one_monokai spaceduck spacegray
+afterglow apprentice ayu ayu-dark dawn iceberg
+jellybeans kanagawa moonfly nightfly onenord
+one_monokai spacegray onedark onedark_dark
+onedark_vivid zephyr tokyonight
+nightfox carbonfox terafox nordfox duskfox
 
 -- warm
 gruvbox gruvbox-baby gruvbox8 kimbox srcery
 
--- nah
-boo everblush doom-one kanagawa minimal
-nightfox tender tokyodark tokyonight
-vim.g.terminal_color_15 = 1 vim-monokai-tasty zephyr
+-- pale
+melange
 
--- unsupported tree-sitter
-melange sonokai juliana
+-- vivid
+catppuccin juliana
 --]]

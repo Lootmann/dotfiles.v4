@@ -1,10 +1,9 @@
 -------------------------------------------------
 -- init.lua
 -------------------------------------------------
-require("util")
 
+require("util")
 require("base")
 require("keybinding")
 require("display")
-
 require("plugins")

@@ -39,7 +39,7 @@ window:
 
 cursor:
   style:
-    shape: Underline # availables: Block, Beam, UnderLine
+    shape: Beam # availables: Block, Beam, UnderLine
 
 scrolling:
   history: 10000

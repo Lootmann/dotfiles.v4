@@ -17,44 +17,54 @@ require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("dcampos/nvim-snippy")
 	use("dcampos/cmp-snippy")
-
-	-- use("jose-elias-alvarez/null-ls.nvim")
-	use("mhartington/formatter.nvim") -- new formatter
-
-	use("easymotion/vim-easymotion")
-	use("lewis6991/gitsigns.nvim")
-	use({
-		"glepnir/galaxyline.nvim",
-		branch = "main",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	}) -- statusline
-
-	use("SmiteshP/nvim-gps")
-	use("mfussenegger/nvim-dap")
-	use("kyazdani42/nvim-web-devicons")
-	use("themercorp/themer.lua")
-	use("windwp/nvim-ts-autotag")
-	use("windwp/nvim-autopairs")
 	use("pedro757/emmet")
 
+	-- formatter
+	use("mhartington/formatter.nvim")
+
+	-- util
+	use("kyazdani42/nvim-web-devicons")
+	use("windwp/nvim-ts-autotag")
 	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
 	})
 
-	use("nvim-telescope/telescope.nvim") -- finder
+	-- status line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	-- finder, searcher
+	use("nvim-telescope/telescope.nvim")
 	use("junegunn/fzf")
 	use("nvim-telescope/telescope-file-browser.nvim")
 
+	use("easymotion/vim-easymotion")
+	use("lewis6991/gitsigns.nvim")
+
 	-- filer: https://github.com/lambdalisue/fern.vim
-	use("lambdalisue/fern.vim")
-	use("antoinemadec/FixCursorHold.nvim") -- dependence
+	use({
+		"lambdalisue/fern.vim",
+		requires = { "antoinemadec/FixCursorHold.nvim" },
+	})
 	use("lambdalisue/nerdfont.vim")
 	use("lambdalisue/glyph-palette.vim")
 	use("lambdalisue/fern-renderer-nerdfont.vim")
 	use("lambdalisue/fern-git-status.vim")
 
+	-- commentout
+	use("terrortylor/nvim-comment")
+
 	-- color scheme
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+
 	use({ "Shatur/neovim-ayu" })
 	use({ "CrispyBaccoon/dawn.vim" })
 	use({ "bluz71/vim-moonfly-colors" })
@@ -62,28 +72,26 @@ require("packer").startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "rmehri01/onenord.nvim" })
 	use({ "luisiacc/gruvbox-baby" })
-	use({ "rockerBOO/boo-colorscheme-nvim" })
 	use({ "marko-cerovac/material.nvim" })
 	use({ "lmburns/kimbox" })
 	use({ "cpea2506/one_monokai.nvim" })
-	use({
-		"olimorris/onedarkpro.nvim",
-		config = function()
-			require("onedarkpro").setup()
-		end,
-	})
+	use({ "olimorris/onedarkpro.nvim" })
 	use({ "nanotech/jellybeans.vim" })
 	use({ "adisen99/apprentice.nvim", requires = { "rktjmp/lush.nvim" } })
 	use({ "srcery-colors/srcery-vim", as = "srcery" })
 	use({ "ackyshake/Spacegray.vim" })
-	use({ "pineapplegiant/spaceduck" })
 	use({ "lifepillar/vim-gruvbox8" })
 	use({ "danilo-augusto/vim-afterglow" })
 	use({ "aonemd/kuroi.vim" })
 	use({ "cocopon/iceberg.vim" })
-
-	-- commentout
-	use("terrortylor/nvim-comment")
+	use({ "glepnir/zephyr-nvim", requires = { "nvim-treesitter/nvim-treesitter", opt = true } })
+	use("rebelot/kanagawa.nvim")
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("folke/tokyonight.nvim")
+	use("EdenEast/nightfox.nvim")
+	use("nyoom-engineering/nyoom.nvim")
+	use("savq/melange")
+	use("kaiuri/nvim-juliana")
 end)
 
 -- LSP Sever management
@@ -93,16 +101,16 @@ require("rc.cmp")
 require("rc.langserver")
 
 -- Package RCs
-require("rc.autopairs")
-require("rc.autotag")
+require("rc.treesitter")
 require("rc.easymotion")
 require("rc.emmet_ls")
 require("rc.feline")
 require("rc.formatter")
 require("rc.fern")
-require("rc.galaxyline")
 require("rc.nvim-comment")
 require("rc.telescope")
-require("rc.treesitter")
 require("rc.gitsigns")
 require("rc.snippy")
+require("rc.lualine")
+require("rc.autotag")
+require("rc.autopairs")
