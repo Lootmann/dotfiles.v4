@@ -21,24 +21,26 @@ opt.winblend = 15
 opt.pumblend = 30
 opt.termguicolors = true
 
+-- with tmux
+cmd("autocmd BufReadPost,FileReadPost,BufNewFile * call system('tmux rename-window ' . expand('%'))")
+cmd("autocmd VimLeave * call system('tmux rename-window zsh')")
+
 -- color scheme
 vim.o.background = "dark"
-cmd("colorscheme juliana")
+cmd("colorscheme ayu")
 
 --[[
--- cool
-afterglow apprentice ayu ayu-dark dawn iceberg
-jellybeans kanagawa moonfly nightfly onenord
-one_monokai spacegray onedark onedark_dark
-onedark_vivid zephyr tokyonight
-nightfox carbonfox terafox nordfox duskfox
-
--- warm
-gruvbox gruvbox-baby gruvbox8 kimbox srcery
-
--- pale
-melange
-
--- vivid
-catppuccin juliana
+cool:
+  apprentice dawn iceberg jellybeans
+pale:
+  kanagawa onenord sherbet
+vivid:
+  afterglow carbonfox catppuccin duskfox juliana
+  nightfox one_monokai onedark onedark_dark nordfox
+  palenightfall spacegray srcery terafox tokyonight
+  zephyr
+warm:
+  ayu ayu-dark ayu-mirage gruvbox gruvbox-baby gruvbox8 kimbox melange
+nah:
+  moonfly nightfly **-bones lighthaus
 --]]
