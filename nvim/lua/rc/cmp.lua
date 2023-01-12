@@ -1,8 +1,13 @@
 -------------------------------------------------
 -- rc/cmp.lua
 -------------------------------------------------
-local s1, cmp = pcall(require, "cmp")
-if not s1 then
+local status, cmp = pcall(require, "cmp")
+if not status then
+	return
+end
+
+local status1, snippy_cfg = pcall(require, "snippy")
+if not status1 then
 	return
 end
 
@@ -24,7 +29,7 @@ cmp.setup({
 
 	snippet = {
 		expand = function(args)
-			require("snippy").expand_snippet(args.body)
+			snippy_cfg.expand_snippet(args.body)
 		end,
 	},
 

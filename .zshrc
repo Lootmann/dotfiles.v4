@@ -115,7 +115,7 @@ alias dc="docker compose"
 export BAT_THEME="gruvbox-dark"
 alias cat="bat"
 
-alias v="vim"
+alias v="nvim"
 alias nv="nvim"
 alias vn="nvim"
 alias m="make"

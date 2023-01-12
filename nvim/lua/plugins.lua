@@ -102,7 +102,6 @@ end)
 require("rc.mason")
 require("rc.lsp-settings.diagnostic")
 require("rc.cmp")
-require("rc.langserver")
 
 -- Package RCs
 require("rc.treesitter")

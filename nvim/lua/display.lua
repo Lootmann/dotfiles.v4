@@ -27,18 +27,16 @@ cmd("autocmd VimLeave * call system('tmux rename-window zsh')")
 
 -- color scheme
 vim.o.background = "dark"
-cmd("colorscheme ayu")
+cmd("colorscheme kanagawa")
 
 --[[
 cool:
-  apprentice dawn iceberg jellybeans
+  apprentice dawn iceberg jellybeans spacegray terafox tokyonight
 pale:
   kanagawa onenord sherbet
 vivid:
-  afterglow carbonfox catppuccin duskfox juliana
-  nightfox one_monokai onedark onedark_dark nordfox
-  palenightfall spacegray srcery terafox tokyonight
-  zephyr
+  afterglow carbonfox catppuccin duskfox juliana nightfox one_monokai
+  onedark onedark_dark nordfox palenightfall srcery zephyr
 warm:
   ayu ayu-dark ayu-mirage gruvbox gruvbox-baby gruvbox8 kimbox melange
 nah:
