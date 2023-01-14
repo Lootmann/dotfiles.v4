@@ -3,7 +3,8 @@
 -------------------------------------------------
 
 -- base
-vim.g.mapleader = " "
+vim.g.maplearder = " "
+vim.g.maplocalleader = " "
 
 Imap("jk", "<ESC>")
 Nmap("<Leader>w", ":w<CR>")

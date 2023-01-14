@@ -4,6 +4,6 @@
 
 require("util")
 require("base")
-require("keybinding")
-require("display")
 require("plugins")
+require("display")
+require("keybinding")

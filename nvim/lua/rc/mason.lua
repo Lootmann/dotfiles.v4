@@ -70,23 +70,20 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	local opt = {}
 
+	opt.on_attach = on_attach
+	opt.capabilities = capabilities
+
 	if lsp == "clangd" then
 		opt = require("rc.lsp-settings.clangd")
 	elseif lsp == "sumneko_lua" then
-		-- lua
 		opt.settings = require("rc.lsp-settings.sumneko_lua")
 	elseif lsp == "pyright" then
 		opt.settings = require("rc.lsp-settings.pyright")
 	elseif lsp == "pylsp" then
 		opt.settings = require("rc.lsp-settings.pylsp")
 	elseif lsp == "tsserver" then
-		opt = {
-			single_file_support = true,
-		}
+		table.insert(opt, { "single_file_support = true" })
 	end
-
-	opt.on_attach = on_attach
-	opt.capabilities = capabilities
 
 	lspconfig[lsp].setup(opt)
 end
