@@ -1,23 +1,38 @@
 ------------------------------------------------
--- lua/keybinding.lua
+-- lua/plugins.lua
 ------------------------------------------------
+
+-- auto Install packer
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	vim.cmd([[packadd packer.nvim]])
+end
 
 -- install packages
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("lithammer/nvim-diagnosticls")
-	use("nvim-lua/plenary.nvim")
+	use({
+		"neovim/nvim-lspconfig",
+		requires = {
+			"j-hui/fidget.nvim",
+			"folke/neodev.nvim",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			--"lithammer/nvim-diagnosticls",
+		},
+	})
 
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-buffer")
-	use("dcampos/nvim-snippy")
-	use("dcampos/cmp-snippy")
-	use("pedro757/emmet")
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-buffer",
+			"dcampos/nvim-snippy",
+			"dcampos/cmp-snippy",
+		},
+	})
 
 	-- formatter
 	use("mhartington/formatter.nvim")
@@ -38,26 +53,33 @@ require("packer").startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
-	-- finder, searcher
-	use("nvim-telescope/telescope.nvim")
+	-- finder
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-telescope/telescope-file-browser.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+	})
 	use("junegunn/fzf")
-	use("nvim-telescope/telescope-file-browser.nvim")
-
-	use("easymotion/vim-easymotion")
-	use("lewis6991/gitsigns.nvim")
 
 	-- filer: https://github.com/lambdalisue/fern.vim
 	use({
 		"lambdalisue/fern.vim",
-		requires = { "antoinemadec/FixCursorHold.nvim" },
+		requires = {
+			"antoinemadec/FixCursorHold.nvim",
+			"lambdalisue/nerdfont.vim",
+			"lambdalisue/glyph-palette.vim",
+			"lambdalisue/fern-renderer-nerdfont.vim",
+			"lambdalisue/fern-git-status.vim",
+		},
 	})
-	use("lambdalisue/nerdfont.vim")
-	use("lambdalisue/glyph-palette.vim")
-	use("lambdalisue/fern-renderer-nerdfont.vim")
-	use("lambdalisue/fern-git-status.vim")
 
-	-- commentout
+	-- other
 	use("terrortylor/nvim-comment")
+	use("pedro757/emmet")
+	use("lewis6991/gitsigns.nvim")
+	use("easymotion/vim-easymotion")
 
 	-- color scheme
 	use({
@@ -99,6 +121,7 @@ require("packer").startup(function(use)
 end)
 
 -- LSP Sever management
+require("rc.nvim-lspconfig")
 require("rc.mason")
 require("rc.lsp-settings.diagnostic")
 require("rc.cmp")

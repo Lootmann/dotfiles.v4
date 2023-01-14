@@ -30,15 +30,15 @@ vim.o.background = "dark"
 cmd("colorscheme kanagawa")
 
 --[[
-cool:
-  apprentice dawn iceberg jellybeans spacegray terafox tokyonight
+chill:
+  apprentice dawn iceberg spacegray tokyonight
 pale:
-  kanagawa onenord sherbet
+  jellybeans kanagawa onenord terafox
 vivid:
   afterglow carbonfox catppuccin duskfox juliana nightfox one_monokai
   onedark onedark_dark nordfox palenightfall srcery zephyr
 warm:
   ayu ayu-dark ayu-mirage gruvbox gruvbox-baby gruvbox8 kimbox melange
 nah:
-  moonfly nightfly **-bones lighthaus
+  moonfly nightfly **-bones lighthaus sherbet
 --]]
