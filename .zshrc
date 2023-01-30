@@ -135,7 +135,7 @@ function copy() {
 }
 
 # git
-alias ga="git add ."
+alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gb="git branch"
@@ -151,6 +151,10 @@ alias gsi="git status --ignored"
 alias gp="git push"
 alias gpm="git push origin main"
 alias gap="git add -p"
+
+# other
+alias sq="sqlite3" # sqlite3
+alias wiki="cd ~/vimwiki && nvim ./index.wiki"
 
 
 ########

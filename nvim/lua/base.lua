@@ -17,7 +17,7 @@ win.number = true
 glo.scrolloff = 5
 win.wrap = false
 win.list = true
-opt.listchars = "tab:»--"
+opt.listchars = "tab:»  "
 
 -- move
 glo.whichwrap = "b,s,h,l,<,>,[,],~"
@@ -44,7 +44,7 @@ buf.softtabstop = 2
 buf.tabstop = 4
 buf.expandtab = true
 
-opt.clipboard:append({ "unnamedplus", "unnamed" })
+opt.clipboard:append({ "unnamedplus" })
 glo.shortmess = "at" -- disable buffer message
 opt.inccommand = "split"
 keymap.set("n", "x", '"_x')
@@ -74,4 +74,8 @@ cursor
 vim.cmd([[
   set guicursor=n:block,i:ver20
   au VimLeave * set guicursor=a:ver20
+]])
+
+vim.cmd([[
+  let g:vimwiki_key_mappings = { 'all_maps': 0, }
 ]])

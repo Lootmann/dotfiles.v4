@@ -55,16 +55,19 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-capabilities.offsetEncoding = "utf-8" -- fix clangd: found multiple encoding
+capabilities.offsetEncoding = { "utf-8" }
 
 local servers = {
 	"html",
 	"clangd",
 	"cssls",
+	"diagnosticls",
+	"gopls",
 	"pyright",
 	"pylsp",
 	"sumneko_lua",
 	"tsserver",
+	"yamlls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -83,6 +86,8 @@ for _, lsp in ipairs(servers) do
 		opt.settings = require("rc.lsp-settings.pylsp")
 	elseif lsp == "tsserver" then
 		table.insert(opt, { "single_file_support = true" })
+	elseif lsp == "diagnosticls" then
+		lspconfig.diagnosticls.setup({})
 	end
 
 	lspconfig[lsp].setup(opt)

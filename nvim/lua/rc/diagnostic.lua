@@ -1,5 +1,5 @@
 -------------------------------------------------
--- rc/lsp-settings/diagnostic.lua
+-- rc/diagnostic.lua
 -------------------------------------------------
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }

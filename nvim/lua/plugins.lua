@@ -29,7 +29,7 @@ require("lazy").setup({
 			"folke/neodev.nvim",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			--"lithammer/nvim-diagnosticls",
+			"lithammer/nvim-diagnosticls",
 		},
 	},
 	{
@@ -51,19 +51,21 @@ require("lazy").setup({
 			require("nvim-autopairs").setup({})
 		end,
 	},
-	{
+	{ -- status line
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
 	},
-	{
+	{ -- finder
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-lua/plenary.nvim",
+      "xiyaowong/telescope-emoji.nvim",
 		},
 	},
-	"junegunn/fzf",
-	{
+	-- "junegunn/fzf",
+
+	{ -- filer
 		"lambdalisue/fern.vim",
 		dependencies = {
 			"antoinemadec/FixCursorHold.nvim",
@@ -73,58 +75,66 @@ require("lazy").setup({
 			"lambdalisue/fern-git-status.vim",
 		},
 	},
+
+	-- utils
 	"terrortylor/nvim-comment",
 	"pedro757/emmet",
 	"lewis6991/gitsigns.nvim",
-	"easymotion/vim-easymotion",
 	{
-		"nvim-treesitter/nvim-treesitter",
-		after = ":TSUpdate",
+		"ggandor/leap.nvim",
+		dependencies = { "tpope/vim-repeat" },
+		keys = { "s", "S" },
+		config = function()
+			local leap = require("leap")
+			leap.set_default_keymaps()
+		end,
 	},
-	{ "CrispyBaccoon/dawn.vim" },
-	{ "EdenEast/nightfox.nvim" },
-	{ "Shatur/neovim-ayu" },
-	{ "ackyshake/Spacegray.vim" },
+	"vimwiki/vimwiki",
+
+	-- colorscheme
+	{ "nvim-treesitter/nvim-treesitter", after = ":TSUpdate" },
 	{ "adisen99/apprentice.nvim", dependencies = { "rktjmp/lush.nvim" } },
-	{ "aonemd/kuroi.vim" },
-	{ "bluz71/vim-moonfly-colors" },
-	{ "bluz71/vim-nightfly-guicolors" },
 	{ "catppuccin/nvim", as = "catppuccin" },
-	{ "cocopon/iceberg.vim" },
-	{ "cpea2506/one_monokai.nvim" },
-	{ "danilo-augusto/vim-afterglow" },
-	{ "ellisonleao/gruvbox.nvim" },
-	{ "folke/tokyonight.nvim" },
 	{ "glepnir/zephyr-nvim", dependencies = { "nvim-treesitter/nvim-treesitter", opt = true } },
-	{ "kaiuri/nvim-juliana" },
-	{ "lifepillar/vim-gruvbox8" },
-	{ "lmburns/kimbox" },
-	{ "luisiacc/gruvbox-baby" },
-	{ "nanotech/jellybeans.vim" },
-	{ "olimorris/onedarkpro.nvim" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "rmehri01/onenord.nvim" },
-	{ "savq/melange" },
 	{ "srcery-colors/srcery-vim", as = "srcery" },
 	{ "mcchrish/zenbones.nvim", dependencies = "rktjmp/lush.nvim" },
-	{ "sainnhe/edge" },
-	{ "rktjmp/lush.nvim" },
-	{ "lewpoly/sherbet.nvim" },
-	{ "lighthaus-theme/vim-lighthaus" },
-	{ "JoosepAlviste/palenightfall.nvim" },
+	"CrispyBaccoon/dawn.vim",
+	"EdenEast/nightfox.nvim",
+	"Shatur/neovim-ayu",
+	"ackyshake/Spacegray.vim",
+	"aonemd/kuroi.vim",
+	"bluz71/vim-moonfly-colors",
+	"bluz71/vim-nightfly-guicolors",
+	"cocopon/iceberg.vim",
+	"cpea2506/one_monokai.nvim",
+	"danilo-augusto/vim-afterglow",
+	"ellisonleao/gruvbox.nvim",
+	"folke/tokyonight.nvim",
+	"kaiuri/nvim-juliana",
+	"lifepillar/vim-gruvbox8",
+	"lmburns/kimbox",
+	"luisiacc/gruvbox-baby",
+	"nanotech/jellybeans.vim",
+	"olimorris/onedarkpro.nvim",
+	"rebelot/kanagawa.nvim",
+	"rmehri01/onenord.nvim",
+	"savq/melange",
+	"sainnhe/edge",
+	"rktjmp/lush.nvim",
+	"lewpoly/sherbet.nvim",
+	"lighthaus-theme/vim-lighthaus",
+	"JoosepAlviste/palenightfall.nvim",
 })
 
 -- LSP Sever management
-require("rc.nvim-lspconfig")
 require("rc.mason")
-require("rc.lsp-settings.diagnostic")
+require("rc.nvim-lspconfig")
 require("rc.cmp")
+require("rc.diagnostic")
 
 -- Package RCs
 require("rc.treesitter")
-require("rc.easymotion")
 require("rc.emmet_ls")
-require("rc.feline")
 require("rc.formatter")
 require("rc.fern")
 require("rc.nvim-comment")

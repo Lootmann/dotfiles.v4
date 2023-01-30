@@ -10,3 +10,12 @@ Imap("jk", "<ESC>")
 Nmap("<Leader>w", ":w<CR>")
 Nmap("<Leader>q", ":q<CR>")
 Nmap("<ESC><ESC>", ":nohl<CR>")
+Nmap("H", "^")
+Nmap("L", "$")
+
+-- vimwiki
+Nmap("<Leader>i", "<Plug>VimwikiIndex")
+Nmap("<Tab>", "<Plug>VimwikiNextLink")
+Nmap("<S-Tab>", "<Plug>VimwikiPrevLink")
+Nmap("<CR>", "<Plug>VimwikiFollowLink")
+Nmap("<Backspace>", "<Plug>VimwikiGoBackLink")
