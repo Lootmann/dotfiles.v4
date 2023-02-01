@@ -12,6 +12,7 @@ M = {
 		"--clang-tidy",
 		"--suggest-missing-includes",
 		"--completion-style=detailed",
+		"--offset-encoding=utf-16",
 	},
 
 	init_options = {
