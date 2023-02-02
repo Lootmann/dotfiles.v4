@@ -102,6 +102,7 @@ alias ll="ls -la"
 alias d="docker"
 alias dc="docker compose"
 
+# colorscheme
 # Coldark-Cold # too dark
 # Monokai Extended Light # lil dark
 # Dracula
@@ -155,6 +156,7 @@ alias gap="git add -p"
 # other
 alias sq="sqlite3" # sqlite3
 alias wiki="cd ~/vimwiki && nvim ./index.wiki"
+alias p="cd ~/program/projects"
 
 
 ########
