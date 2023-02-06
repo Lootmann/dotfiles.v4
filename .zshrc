@@ -35,9 +35,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
-# dont keep wrong command
-zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
-
 # LS_COLORS from https://github.com/trapd00r/LS_COLORS
 source ~/.local/share/lscolors.sh
 
@@ -123,6 +120,8 @@ alias m="make"
 alias mkae="make"
 alias t="touch"
 alias py="python3"
+alias pyinit="py -m venv venv && . ./venv/bin/activate && pip install -U pip"
+
 
 # mkdir and cd
 function mkcd() {

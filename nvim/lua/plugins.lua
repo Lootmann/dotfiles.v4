@@ -44,11 +44,21 @@ require("lazy").setup({
 	},
 	"mhartington/formatter.nvim",
 	"kyazdani42/nvim-web-devicons",
-	"windwp/nvim-ts-autotag",
+	{
+		"windwp/nvim-ts-autotag",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				autotag = { enable = true },
+			})
+		end,
+	},
 	{
 		"windwp/nvim-autopairs",
 		config = function()
-			require("nvim-autopairs").setup({})
+			require("nvim-autopairs").setup({
+				disable_filetype = { "TelescopePrompt", "vim" },
+			})
 		end,
 	},
 	{ -- status line
@@ -60,7 +70,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-lua/plenary.nvim",
-      "xiyaowong/telescope-emoji.nvim",
+			"xiyaowong/telescope-emoji.nvim",
 		},
 	},
 	-- "junegunn/fzf",
@@ -93,37 +103,19 @@ require("lazy").setup({
 
 	-- colorscheme
 	{ "nvim-treesitter/nvim-treesitter", after = ":TSUpdate" },
-	{ "adisen99/apprentice.nvim", dependencies = { "rktjmp/lush.nvim" } },
-	{ "catppuccin/nvim", as = "catppuccin" },
-	{ "glepnir/zephyr-nvim", dependencies = { "nvim-treesitter/nvim-treesitter", opt = true } },
-	{ "srcery-colors/srcery-vim", as = "srcery" },
-	{ "mcchrish/zenbones.nvim", dependencies = "rktjmp/lush.nvim" },
-	"CrispyBaccoon/dawn.vim",
-	"EdenEast/nightfox.nvim",
-	"Shatur/neovim-ayu",
-	"ackyshake/Spacegray.vim",
-	"aonemd/kuroi.vim",
-	"bluz71/vim-moonfly-colors",
-	"bluz71/vim-nightfly-guicolors",
-	"cocopon/iceberg.vim",
-	"cpea2506/one_monokai.nvim",
 	"danilo-augusto/vim-afterglow",
-	"ellisonleao/gruvbox.nvim",
-	"folke/tokyonight.nvim",
-	"kaiuri/nvim-juliana",
-	"lifepillar/vim-gruvbox8",
-	"lmburns/kimbox",
-	"luisiacc/gruvbox-baby",
-	"nanotech/jellybeans.vim",
-	"olimorris/onedarkpro.nvim",
-	"rebelot/kanagawa.nvim",
-	"rmehri01/onenord.nvim",
-	"savq/melange",
+	"Shatur/neovim-ayu",
 	"sainnhe/edge",
-	"rktjmp/lush.nvim",
-	"lewpoly/sherbet.nvim",
-	"lighthaus-theme/vim-lighthaus",
-	"JoosepAlviste/palenightfall.nvim",
+	"rebelot/kanagawa.nvim",
+	"cpea2506/one_monokai.nvim",
+	"olimorris/onedarkpro.nvim",
+	"sainnhe/sonokai",
+	"ackyshake/Spacegray.vim",
+	{ "glepnir/zephyr-nvim", dependencies = { "nvim-treesitter/nvim-treesitter", opt = true } },
+	"lifepillar/vim-gruvbox8",
+	"luisiacc/gruvbox-baby",
+	"lmburns/kimbox",
+	"savq/melange",
 })
 
 -- LSP Sever management
@@ -142,5 +134,4 @@ require("rc.telescope")
 require("rc.gitsigns")
 require("rc.snippy")
 require("rc.lualine")
-require("rc.autotag")
-require("rc.autopairs")
+require("rc.vimwiki")

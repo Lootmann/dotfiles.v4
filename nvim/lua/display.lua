@@ -1,20 +1,20 @@
 -------------------------------------------------
 -- lua/display.lua
 -------------------------------------------------
-
--- definitions
 local cmd = vim.cmd
 local opt = vim.opt
 
-cmd("au ColorScheme * hi Normal      ctermbg=none guibg=none")
-cmd("au ColorScheme * hi NonText     ctermbg=none guibg=none")
-cmd("au ColorScheme * hi LineNr      ctermbg=none guibg=none")
-cmd("au ColorScheme * hi Folded      ctermbg=none guibg=none")
-cmd("au ColorScheme * hi EndOfBuffer ctermbg=none guibg=none")
-
 vim.wo.cursorline = true
-cmd("au ColorScheme * hi CursorLine   ctermfg=none ctermbg=none cterm=none guibg=#0c0c0c guifg=none")
-cmd("au ColorScheme * hi CursorLineNr ctermfg=none ctermbg=none cterm=none guibg=none    guifg=#ffffff")
+
+cmd([[
+au ColorScheme * hi Normal       ctermbg=none guibg=none
+au ColorScheme * hi NonText      ctermbg=none guibg=none
+au ColorScheme * hi LineNr       ctermbg=none guibg=none
+au ColorScheme * hi Folded       ctermbg=none guibg=nonecmd
+au ColorScheme * hi EndOfBuffer  ctermbg=none guibg=nonecmd
+au ColorScheme * hi CursorLine   ctermbg=none guibg=#151515 guifg=none
+au ColorScheme * hi CursorLineNr ctermbg=none guibg=none    guifg=#FFB52E
+]])
 
 -- transparency
 opt.winblend = 30
@@ -23,18 +23,16 @@ opt.termguicolors = true
 
 -- color scheme
 vim.o.background = "dark"
-cmd("colorscheme ayu-dark")
+cmd("colorscheme kanagawa")
 
 --[[
-chill:
-  apprentice dawn iceberg spacegray tokyonight
-pale:
-  jellybeans kanagawa onenord terafox
-vivid:
-  afterglow carbonfox catppuccin duskfox juliana nightfox one_monokai
-  onedark onedark_dark nordfox palenightfall srcery zephyr
-warm:
-  ayu ayu-dark ayu-mirage gruvbox gruvbox-baby gruvbox8 kimbox melange
+cur:
+  afterglow ayu edge kanagawa onedark onedark_dark
+  sonokai spacegray zephyr
+  gruvbox8 gruvbox-baby kimbox melange
+
 nah:
-  moonfly nightfly **-bones lighthaus sherbet
+  apprentice carbonfox catppuccin dawn duskfox iceberg jellybeans
+  juliana lighthaus moonfly nightfly nightfox nordfox palenightfall
+  sherbet srcery terafox tokyonight
 --]]
