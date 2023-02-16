@@ -119,7 +119,7 @@ alias vn="nvim"
 alias m="make"
 alias mkae="make"
 alias t="touch"
-alias py="python3"
+alias py="python3.10"
 alias pyinit="py -m venv venv && . ./venv/bin/activate && pip install -U pip"
 
 

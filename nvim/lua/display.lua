@@ -23,16 +23,16 @@ opt.termguicolors = true
 
 -- color scheme
 vim.o.background = "dark"
-cmd("colorscheme kanagawa")
+cmd("colorscheme gruvbox-material")
 
 --[[
 cur:
   afterglow ayu edge kanagawa onedark onedark_dark
   sonokai spacegray zephyr
-  gruvbox8 gruvbox-baby kimbox melange
+  gruvbox8 gruvbox-baby gruvbox-material kimbox melange
 
 nah:
-  apprentice carbonfox catppuccin dawn duskfox iceberg jellybeans
-  juliana lighthaus moonfly nightfly nightfox nordfox palenightfall
-  sherbet srcery terafox tokyonight
+  apprentice carbonfox catppuccin dawn duskfox gruvbox8 gruvbox-baby
+  iceberg jellybeans juliana lighthaus moonfly nightfly nightfox nordfox
+  palenightfall sherbet srcery terafox tokyonight
 --]]

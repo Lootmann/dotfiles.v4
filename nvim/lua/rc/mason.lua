@@ -64,6 +64,7 @@ local servers = {
 	"gopls",
 	"pyright",
 	"pylsp",
+	"rust_analyzer",
 	"sumneko_lua",
 	"tsserver",
 	"yamlls",

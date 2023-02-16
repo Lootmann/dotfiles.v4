@@ -86,6 +86,14 @@ require("lazy").setup({
 		},
 	},
 
+	-- specify languages
+	{
+		"simrat39/rust-tools.nvim",
+		config = function()
+			require("rust-tools").setup({})
+		end,
+	},
+
 	-- utils
 	"terrortylor/nvim-comment",
 	"pedro757/emmet",
@@ -100,6 +108,7 @@ require("lazy").setup({
 		end,
 	},
 	"vimwiki/vimwiki",
+	"preservim/vim-markdown",
 
 	-- colorscheme
 	{ "nvim-treesitter/nvim-treesitter", after = ":TSUpdate" },
@@ -112,8 +121,7 @@ require("lazy").setup({
 	"sainnhe/sonokai",
 	"ackyshake/Spacegray.vim",
 	{ "glepnir/zephyr-nvim", dependencies = { "nvim-treesitter/nvim-treesitter", opt = true } },
-	"lifepillar/vim-gruvbox8",
-	"luisiacc/gruvbox-baby",
+	"sainnhe/gruvbox-material",
 	"lmburns/kimbox",
 	"savq/melange",
 })
@@ -135,3 +143,4 @@ require("rc.gitsigns")
 require("rc.snippy")
 require("rc.lualine")
 require("rc.vimwiki")
+require("rc.vim-markdown")

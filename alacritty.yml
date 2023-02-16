@@ -6,18 +6,44 @@ env:
   TERM: alacritty
 
 font:
+  size: 15.0
+  offset:
+    x: -1 # line spacing (P/N Integer)
+    y: -3 # line height (P/N Integer)
   normal:
-    family: CaskaydiaCove  Nerd Font Mono # 13.5
-    # family: FiraCode       Nerd Font Mono
-    # family: Hack           Nerd Font Mono # 15.0
-    # family: Inconsolata    Nerd Font Mono # 16.0
-    # family: JetBrainsMono  Nerd Font Mono # 13.5
-    # family: UbuntuMono     Nerd Font Mono # 16.0
+    #family: agave             Nerd Font Mono # 17.0
+    family: CaskaydiaCove     Nerd Font Mono # 14.0
+    #family: JetBrainsMono     Nerd Font Mono # 13.5
+    #family: CodeNewRoman      Nerd Font Mono # 15.0
+    #family: Cousine           Nerd Font Mono # 14.0
+    #family: DaddyTimeMono     Nerd Font Mono # 15.5
+    #family: FantasqueSansMono Nerd Font Mono # 16.5
+    #family: Hack              Nerd Font Mono # 15.0
+    #family: Lilex             Nerd Font Mono # 14.0
+    #family: Liberation                   Mono # 14.5
+    #family: Mononoki          Nerd Font Mono # 15.0
+    #family: ProggyCleanTT     Nerd Font Mono # 20.0
+    #family: RobotoMono        Nerd Font Mono # 16.0
+    #family: ShureTechMono     Nerd Font Mono # 15.0
+    #family: UbuntuMono        Nerd Font Mono # 16.0
+    ###nah
+    #family: SpaceMono         Nerd Font Mono # 14.0
+    #family: FiraCode          Nerd Font Mono
+    #family: FuraCode          Nerd Font Mono
+    #family: Inconsolata       Nerd Font Mono # 16.0
+    #family: mplus             Nerd Font Mono # 14.0
+    #family: OverpassMono      Nerd Font Mono # 15.0
+
+  italic:
+    #family: agave             Nerd Font Mono # 17.0
+    family: JetBrainsMono      Nerd Font Mono
+    #family: CaskaydiaCove     Nerd Font Mono # 14.0
+
   bold:
-    family: CaskaydiaCove Nerd Font Mono # 13.5
-    # family: JetBrainsMono Nerd Font Mono # 13.5
-    # family: UbuntuMono    Nerd Font Mono # 16.0
-  size: 14.0
+    #family: agave              Nerd Font Mono # 17.0
+    family: CaskaydiaCove      Nerd Font Mono # 13.5
+    #family: JetBrainsMono      Nerd Font Mono # 13.5
+    #family: UbuntuMono         Nerd Font Mono # 16.0
 
 ########################
 # window
@@ -25,7 +51,7 @@ font:
 window:
   dimensions:
     columns: 120
-    lines: 45
+    lines: 49
   position:
     x: 600
     y: 0
@@ -52,13 +78,8 @@ mouse:
   hide_when_typing: true
 
 mouse_bindings:
-  - { mouse: Left, mods: Shift, action: Copy }
-  - { mouse: Right, mods: Shift, action: Paste }
-
-########################
-# editor
-########################
-tabspaces: 2
+  - { mouse: Left, action: Copy }
+  - { mouse: Right, action: Paste }
 
 ########################
 # util
@@ -75,28 +96,26 @@ class:
 colors:
   # Default colors
   primary:
-    background: '#0A0E14'
-    foreground: '#B3B1AD'
-
+    background: "#0A0E14"
+    foreground: "#B3B1AD"
   # Normal colors
   normal:
-    black: '#01060E'
-    red: '#EA6C73'
-    green: '#91B362'
-    yellow: '#F9AF4F'
-    blue: '#53BDFA'
-    magenta: '#FAE994'
-    cyan: '#90E1C6'
-    white: '#C7C7C7'
-
+    black: "#01060E"
+    red: "#EA6C73"
+    green: "#91B362"
+    yellow: "#F9AF4F"
+    blue: "#53BDFA"
+    magenta: "#FAE994"
+    cyan: "#90E1C6"
+    white: "#C7C7C7"
   # Bright colors
   bright:
-    black: '#686868'
-    red: '#F07178'
-    green: '#C2D94C'
-    yellow: '#FFB454'
-    blue: '#59C2FF'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black: "#686868"
+    red: "#F07178"
+    green: "#C2D94C"
+    yellow: "#FFB454"
+    blue: "#59C2FF"
+    magenta: "#FFEE99"
+    cyan: "#95E6CB"
+    white: "#FFFFFF"
 theme: Ayu-Dark
