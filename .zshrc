@@ -2,9 +2,9 @@
 # .zshrc
 ##########
 
-#######
+#################################
 # zsh
-#######
+#################################
 
 # prompt (pure)
 fpath+=$HOME/.zsh/pure
@@ -39,9 +39,9 @@ setopt HIST_SAVE_NO_DUPS
 source ~/.local/share/lscolors.sh
 
 
-###########
+#################################
 # plugins
-###########
+#################################
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 80% --reverse --border'
@@ -66,21 +66,11 @@ ZSH_HIGHLIGHT_STYLES[globbing]='none'
 
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
-# zsh-hist
-# source ~/.zsh/zsh-hist/zsh-hist.plugin.zsh
-# don't save fail command
-# delete-failed-history() {
-#   (( ? )) &&
-#     hist -s d -1
-# }
-# autoload -Uz add-zsh-hook
-# add-zsh-hook precmd delete-failed-history
 
-
-
-#########
+#################################
 # alias
-#########
+#################################
+
 alias c="clear"
 alias cls="clear;ls"
 
@@ -139,13 +129,11 @@ alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gb="git branch"
-alias gba="git branch -a"
-alias gbv="git branch -vva"
 
 alias gda="git diff --cached"
 alias gdh="git diff HEAD"
 alias gg="git log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by\"%C(cyan ul)%an%Creset\" %x09%C(auto)%s %d'"
-alias glo="git log --oneline"
+alias ggl="git log --oneline"
 alias gs="git status -uall"
 alias gsi="git status --ignored"
 alias gp="git push"
@@ -154,13 +142,12 @@ alias gap="git add -p"
 
 # other
 alias sq="sqlite3" # sqlite3
-alias wiki="cd ~/vimwiki && nvim ./index.wiki"
 alias p="cd ~/program/projects"
 
 
-########
+#################################
 # path
-########
+#################################
 
 # bin
 export PATH="$PATH:$HOME/.local/bin"
@@ -173,3 +160,8 @@ export PATH=$PATH:/usr/local/go/bin
 
 # alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+[ -f "/home/hoge/.ghcup/env" ] && source "/home/hoge/.ghcup/env" # ghcup-env
+
+# zig
+export PATH=$PATH:/snap/bin/zig

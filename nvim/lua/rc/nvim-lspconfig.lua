@@ -1,3 +1,3 @@
 -- dependencies
-require("fidget").setup()
+-- require("fidget").setup()
 require("neodev").setup()

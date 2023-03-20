@@ -10,7 +10,6 @@ M = {
 		"--background-index",
 		"--pch-storage=memory",
 		"--clang-tidy",
-		"--suggest-missing-includes",
 		"--completion-style=detailed",
 		"--offset-encoding=utf-16",
 	},

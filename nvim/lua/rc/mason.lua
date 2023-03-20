@@ -1,12 +1,13 @@
 -------------------------------------------------
 -- rc/mason.lua
 -------------------------------------------------
-
 local function nmap(key, command, opts)
 	vim.keymap.set("n", key, command, opts)
 end
 
--- dont use function(client,)
+-- for null-ls
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 local on_attach = function(client, bufnr)
 	local bufopts = { silent = true, buffer = bufnr }
 
@@ -24,6 +25,24 @@ local on_attach = function(client, bufnr)
 	nmap("g[", vim.diagnostic.goto_prev, bufopts)
 
 	client.server_capabilities.document_formatting = false
+
+	-- null-ls
+	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format({
+					bufnr = bufnr,
+					filter = function(client)
+						return client.name == "null-ls"
+					end,
+				})
+			end,
+		})
+	end
 end
 
 local status, mason = pcall(require, "mason")
@@ -61,13 +80,17 @@ local servers = {
 	"clangd",
 	"cssls",
 	"diagnosticls",
+	"dockerls",
+	"docker_compose_language_service",
 	"gopls",
+	"hls",
 	"pyright",
 	"pylsp",
 	"rust_analyzer",
-	"sumneko_lua",
+	"lua_ls",
 	"tsserver",
-	"yamlls",
+	-- "yamlls",
+	"zls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -78,7 +101,7 @@ for _, lsp in ipairs(servers) do
 
 	if lsp == "clangd" then
 		opt = require("rc.lsp-settings.clangd")
-	elseif lsp == "sumneko_lua" then
+	elseif lsp == "lua_ls" then
 		opt.settings = require("rc.lsp-settings.sumneko_lua")
 	elseif lsp == "pyright" then
 		opt.settings = require("rc.lsp-settings.pyright")
@@ -86,6 +109,8 @@ for _, lsp in ipairs(servers) do
 		opt.settings = require("rc.lsp-settings.pylsp")
 	elseif lsp == "tsserver" then
 		table.insert(opt, { "single_file_support = true" })
+	elseif lsp == "hls" then
+		opt.settings = require("rc.lsp-settings.hls")
 	elseif lsp == "diagnosticls" then
 		lspconfig.diagnosticls.setup({})
 	end

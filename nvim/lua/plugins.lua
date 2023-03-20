@@ -42,7 +42,6 @@ require("lazy").setup({
 			"dcampos/cmp-snippy",
 		},
 	},
-	"mhartington/formatter.nvim",
 	"kyazdani42/nvim-web-devicons",
 	{
 		"windwp/nvim-ts-autotag",
@@ -61,6 +60,10 @@ require("lazy").setup({
 			})
 		end,
 	},
+
+    { -- formatter
+		"jose-elias-alvarez/null-ls.nvim",
+    },
 	{ -- status line
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -73,7 +76,6 @@ require("lazy").setup({
 			"xiyaowong/telescope-emoji.nvim",
 		},
 	},
-	-- "junegunn/fzf",
 
 	{ -- filer
 		"lambdalisue/fern.vim",
@@ -107,7 +109,6 @@ require("lazy").setup({
 			leap.set_default_keymaps()
 		end,
 	},
-	"vimwiki/vimwiki",
 	"preservim/vim-markdown",
 
 	-- colorscheme
@@ -119,7 +120,6 @@ require("lazy").setup({
 	"cpea2506/one_monokai.nvim",
 	"olimorris/onedarkpro.nvim",
 	"sainnhe/sonokai",
-	"ackyshake/Spacegray.vim",
 	{ "glepnir/zephyr-nvim", dependencies = { "nvim-treesitter/nvim-treesitter", opt = true } },
 	"sainnhe/gruvbox-material",
 	"lmburns/kimbox",
@@ -135,12 +135,11 @@ require("rc.diagnostic")
 -- Package RCs
 require("rc.treesitter")
 require("rc.emmet_ls")
-require("rc.formatter")
 require("rc.fern")
 require("rc.nvim-comment")
 require("rc.telescope")
 require("rc.gitsigns")
 require("rc.snippy")
 require("rc.lualine")
-require("rc.vimwiki")
 require("rc.vim-markdown")
+require("rc.null_ls")
