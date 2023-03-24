@@ -161,7 +161,5 @@ export PATH=$PATH:/usr/local/go/bin
 # alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-[ -f "/home/hoge/.ghcup/env" ] && source "/home/hoge/.ghcup/env" # ghcup-env
-
 # zig
 export PATH=$PATH:/snap/bin/zig

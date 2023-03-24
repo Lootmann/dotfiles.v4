@@ -61,9 +61,9 @@ require("lazy").setup({
 		end,
 	},
 
-    { -- formatter
+	{ -- formatter
 		"jose-elias-alvarez/null-ls.nvim",
-    },
+	},
 	{ -- status line
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },

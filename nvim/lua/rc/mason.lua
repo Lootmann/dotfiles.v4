@@ -6,8 +6,7 @@ local function nmap(key, command, opts)
 end
 
 -- for null-ls
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
 	local bufopts = { silent = true, buffer = bufnr }
 
@@ -25,24 +24,6 @@ local on_attach = function(client, bufnr)
 	nmap("g[", vim.diagnostic.goto_prev, bufopts)
 
 	client.server_capabilities.document_formatting = false
-
-	-- null-ls
-	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.buf.format({
-					bufnr = bufnr,
-					filter = function(client)
-						return client.name == "null-ls"
-					end,
-				})
-			end,
-		})
-	end
 end
 
 local status, mason = pcall(require, "mason")
@@ -75,45 +56,30 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
-local servers = {
-	"html",
-	"clangd",
-	"cssls",
-	"diagnosticls",
-	"dockerls",
-	"docker_compose_language_service",
-	"gopls",
-	"hls",
-	"pyright",
-	"pylsp",
-	"rust_analyzer",
-	"lua_ls",
-	"tsserver",
-	-- "yamlls",
-	"zls",
-}
+-- iterate all installed servers
+-- https://github.com/williamboman/mason.nvim/discussions/74#discussioncomment-3151049
+mason_lsp.setup_handlers({
+	function(server_name)
+		local lsp = server_name
+		local opt = {}
 
-for _, lsp in ipairs(servers) do
-	local opt = {}
+		opt.on_attach = on_attach
+		opt.capabilities = capabilities
 
-	opt.on_attach = on_attach
-	opt.capabilities = capabilities
+		if lsp == "clangd" then
+			opt = require("rc.lsp-settings.clangd")
+		elseif lsp == "lua_ls" then
+			opt.settings = require("rc.lsp-settings.lua_ls")
+		elseif lsp == "pyright" then
+			opt.settings = require("rc.lsp-settings.pyright")
+		elseif lsp == "pylsp" then
+			opt.settings = require("rc.lsp-settings.pylsp")
+		elseif lsp == "tsserver" then
+			table.insert(opt, { "single_file_support = true" })
+		elseif lsp == "hls" then
+			opt.settings = require("rc.lsp-settings.hls")
+		end
 
-	if lsp == "clangd" then
-		opt = require("rc.lsp-settings.clangd")
-	elseif lsp == "lua_ls" then
-		opt.settings = require("rc.lsp-settings.sumneko_lua")
-	elseif lsp == "pyright" then
-		opt.settings = require("rc.lsp-settings.pyright")
-	elseif lsp == "pylsp" then
-		opt.settings = require("rc.lsp-settings.pylsp")
-	elseif lsp == "tsserver" then
-		table.insert(opt, { "single_file_support = true" })
-	elseif lsp == "hls" then
-		opt.settings = require("rc.lsp-settings.hls")
-	elseif lsp == "diagnosticls" then
-		lspconfig.diagnosticls.setup({})
-	end
-
-	lspconfig[lsp].setup(opt)
-end
+		lspconfig[server_name].setup(opt)
+	end,
+})
